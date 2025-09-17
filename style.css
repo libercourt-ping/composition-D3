@@ -1,0 +1,212 @@
+h1 {
+  font-family: "Campus";
+}
+
+h2 {
+  font-family: "Trend";
+}
+
+#logo {
+  background-image: url("./images/logo.png");
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  animation: looper 1s linear 1;
+  background-color: var(--fond-logo);
+  position: relative;
+  cursor: pointer;
+}
+
+#logo:hover #info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#info {
+  position: absolute;
+  top: 0;
+  left: 110%;
+  width: 20vw;
+  transform: rotate(0deg);
+  background-color: white;
+  border-radius: 50px;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+#title {
+  border: none;
+  animation: freinage 3s linear 1;
+}
+
+:root {
+  --bord: 0.5rem;
+  --fond: rgb(180, 180, 180);
+  --fond-logo: rgb(250, 250, 250);
+}
+
+table {
+  width: calc(100% - (2 * var(--bord)));
+  background-color: var(--fond);
+}
+
+th,
+td {
+  border: 2px dotted black;
+}
+
+table tr:first-child th {
+  border-top: none;
+}
+
+table tr th:first-child {
+  border-left: none;
+}
+
+table tr td:last-child,
+table tr th:last-child {
+  border-right: none;
+}
+
+table tr:last-child td,
+table tr:last-child th {
+  border-bottom: none;
+}
+
+div:has(> table) {
+  border: 1px solid var(--fond);
+  border-radius: 20px;
+  background-color: var(--fond);
+  padding: var(--bord) 0;
+}
+
+td {
+  text-align: center;
+}
+
+td::before {
+  content: "";
+  border-radius: 20px;
+  padding: 0 0.5rem;
+  font-weight: bold;
+}
+td.non::before {
+  content: "\00A0?\00A0";
+  background-color: yellow;
+  color: black;
+}
+td.oui::before {
+  content: "\2713";
+  background-color: lime;
+  color: black;
+}
+td.absent::before {
+  content: "\2715";
+  background-color: red;
+  color: white;
+}
+td.remplacant::before {
+  content: "\00A0\2690\00A0";
+  background-color: blue;
+  color: orange;
+}
+td.maybe::before {
+  content: "\231B";
+  background-color: rgba(127, 63, 127, 1);
+}
+
+th.th_joueur {
+  padding: 0 1rem;
+}
+
+th.exterieur::after {
+  content: "\000A(extérieur)";
+  color: rgb(170, 40, 40);
+}
+
+th.exterieur,
+th.h_exterieur {
+  background-color: rgba(60, 60, 120, 0.4);
+}
+th.interne,
+th.h_interne {
+  background-color: rgba(120, 120, 120, 0.2);
+}
+
+.led {
+  font-family: "LED";
+  color: #fa0;
+  animation: scroll 10s linear infinite;
+  text-shadow: 0 0 5px #0f04, 0 0 10px #0f04, 0 0 20px #0f04;
+}
+
+footer:has(> .led) {
+  overflow: hidden;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes freinage {
+  0% {
+    transform: translateX(200%);
+    font-style: italic;
+    border: none;
+    border-bottom: 10px solid;
+    border-image: url("./images/frein.png") 30 stretch;
+  }
+  5% {
+    transform: translateX(-20%);
+  }
+  18% {
+    transform: translateX(0%);
+  }
+  45% {
+    transform: translateX(0%);
+    border-image: url("./images/frein.png") 30 stretch;
+    font-style: normal;
+    border: none;
+  }
+  100% {
+    transform: translateX(0%);
+    font-style: normal;
+  }
+}
+
+@keyframes looper {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  45% {
+    transform: rotate(180deg);
+  }
+  90% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@font-face {
+  font-family: "LED";
+  src: url("fonts/LED\ Dot-Matrix.ttf");
+}
+
+@font-face {
+  font-family: "Trend";
+  src: url("fonts/Super\ Trend.ttf");
+}
+@font-face {
+  font-family: "Campus";
+  src: url("fonts/CAMPUS.ttf");
+}

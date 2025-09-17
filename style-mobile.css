@@ -1,0 +1,88 @@
+h3 {
+  font-family: "Campus";
+}
+
+h4 {
+  font-family: "Trend";
+}
+
+#logo-mobile {
+  background-image: url("./images/logo.png");
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  animation: looper 1s linear 1;
+  background-color: var(--fond-logo);
+  position: relative;
+}
+
+.next-match {
+  text-decoration: underline 2px red;
+}
+
+.presents::before,
+.absents::before,
+.previsionnels::before,
+.remplacants::before {
+  position: absolute;
+  left: 0;
+  font-size: 10pt;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+  opacity: 0;
+}
+.presents:active::before,
+.absents:active::before,
+.previsionnels:active::before,
+.remplacants:active::before {
+  opacity: 1;
+}
+
+.presents,
+.remplacants,
+.previsionnels,
+.absents {
+    user-select: none;
+}
+.presents {
+  background-color: rgba(13, 117, 13, 0.523);
+}
+
+.previsionnels {
+  background-color: rgba(128, 0, 128, 0.474);
+}
+
+.remplacants {
+  background-color: rgba(173, 216, 230, 0.523);
+}
+
+.absents {
+  background-color: rgba(165, 42, 42, 0.5);
+  color: white;
+}
+
+.presents::before {
+  content: "\2713";
+  background-color: lime;
+  color: white;
+}
+.absents::before {
+  content: "\2715";
+  background-color: rgba(216, 48, 48, 0.738);
+  color: white;
+}
+
+.previsionnels::before {
+  content: "\231B";
+  background-color: rgba(127, 63, 127, 1);
+}
+
+.remplacants::before {
+  content: "\2690";
+  background-color: blue;
+  color: orange;
+}
+
+.teams > div:last-child {
+  border-radius: 0 0 10px 10px;
+}
